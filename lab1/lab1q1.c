@@ -1,37 +1,40 @@
-/*WAP to count the no. of chars and lines in a file*/
+// WAP to count the no. of chars and lines in a file
 
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void) {
-    
-    FILE* fp = fopen("source.txt", "r");
-    
-    if(!fp) {
-        perror("Error opening source file");
-        EXIT_FAILURE;
-    }
+int	main(void)
+{
+	FILE *fp = fopen("lab1q2.c", "r");
 
-    int charcnt;
-    int linecnt=0;
+	if (!fp)
+	{
+		perror("Error opening source file");
+		EXIT_FAILURE;
+	}
 
-    char c = fgetc(fp);
-    charcnt = 1;
+	int charcnt;
+	int linecnt = 0;
 
-    while(c!=EOF) {
-        
-        c = fgetc(fp);
-        charcnt++;
+	char c = fgetc(fp);
+	charcnt = 1;
 
-        if(c=='\n') linecnt++;
-    }
+	while (c != EOF)
+	{
+		c = fgetc(fp);
+		charcnt++;
 
-    if(c!='\n') linecnt++;
+		if (c == '\n')
+			linecnt++;
+	}
 
-    fclose(fp);
+	if (c != '\n')
+		linecnt++;
 
-    printf("Number of chars and lines respectively are %d and %d.\n", charcnt, linecnt);
-    
-    return 0;
+	fclose(fp);
 
+	printf("Number of chars and lines respectively are %d and %d.\n", charcnt,
+		linecnt);
+
+	return (0);
 }
